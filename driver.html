@@ -1,0 +1,182 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Physics Tests</title>
+  </head>
+
+  <body onload="main()">
+    <div id="canvasCont">
+      <canvas id="webgl" style="position: absolute; z-index: 1; width:400; height:400">
+        Please use a browser that supports "canvas"
+      </canvas>
+
+      <canvas id="hud" style="position: absolute;z-index: 1"></canvas>
+      <div id="overlay">
+        <div>Time: <span id="time"></span></div>
+        <div>Angle: <span id="angle"></span></div>
+      </div>
+    </div>
+    <div id="colorBars">
+    <div class="slidecontainer">
+      <h4>red</h4>
+      <input
+        type="range"
+        min="1"
+        max="100"
+        value="50"
+        class="slider"
+        id="rRange"
+      />
+    </div>
+    <div class="slidecontainer">
+      <h4>blue</h4>
+      <input
+        type="range"
+        min="1"
+        max="100"
+        value="50"
+        class="slider"
+        id="bRange"
+      />
+    </div>
+    <div class="slidecontainer">
+      <h4>green</h4>
+      <input
+        type="range"
+        min="1"
+        max="100"
+        value="50"
+        class="slider"
+        id="gRange"
+      />
+      </div>
+    </div>
+    <!-- Buttons to load and print file content -->
+    <br/><br />
+  
+    Select File: <input type="file" id="fileInput" />
+    <button type="button" id="fileLoad">Print file content</button>
+    <link rel="stylesheet" href="./style.css" />
+    <div id="nextScene" class="button">
+     <img href="./objs/forward.svg">
+    </div>
+  </br>
+</br>
+
+</br>
+    <p>
+      Project Quantum
+    </br>
+        Eric Dunbar, Marshal Morse, Teddy Dyer
+    </br>
+
+
+</br>
+</br>
+Part 2 Documentation.
+</br>
+
+
+
+
+</br>
+How to interact:
+'c' creates spheres that act according to physics in the first scene. 
+'v' deletes the last sphere created 
+'b' creates bouyant spheres that act with simulated under water physics. 
+</br>
+</br>
+</br>
+
+Planning Document
+</br>
+    For our project we’re planning to create an interactive information display for a product (maybe ourselves). 
+    We want to move the user from 3d scene to 3d scene by moving the camera to different scenes in a 3d world 
+    or rendering new ones, with the user having the ability to create and destroy objects within the scene. 
+    Within each scene we plan to exhibit a host of various effects and user interactions. We plan to have different text 
+    in each scene with a clickable hud for navigation. The HUD could be a shape or just a < > html text to navigate from 
+    one scene to the next. To navigate we plan to use animation with keyframing. We are going for a clean and simple aesthetic
+    with warm colors, low poly object designs, and soft lighting. We want the experience to feel friendly and approachable. 
+    Project Quantum is designed to fluidly move users between 3d scenes to help improve the users understanding of a
+    product or idea.  
+
+  </br>
+Description of each of (team members x2) advanced methods you have implemented.
+	Interactive HUD: We are going to use this for navigation. There can be a markers or buttons to click to get from 
+    one screen to the next. We will be able to use this to make sure the user can get around the project.
+  Text onto objects: We wanted to show how to do the interactions we created so we put text on the walls to 
+  show how to do everything.
+  Collision Detection: We added collision detection using our own math, against the wall and the ceilings and floors.
+  Object Physics (gravity + friction): We simulated acceleration due to gravity to create semi-realistic physics for bouncing spheres, and friction 
+  so that the spheres eventually stop rolling. (done without the use of any outside library, built from scratch).
+  Under water Physics: simulated spheres with bouyancy in the second scene. 
+  Color Picking: We made it so you can choose the color of the objects.
+  KeyFraming: Moving the camera using keys insead and zooming around.
+  </br>
+For the scenes our to do list is as follows:
+ -were going to have limit camera movement to be closely around our scene.
+ -add click and drag interactions
+ 	- add smoke and other visual effects mentioned about
+	- add a hud for easy starting animations
+	-make scene from OBJ and WebGL shapes
+	-add shadows to your shaders
+	-possibly add collision and maybe raytracing foreground/background if we get There
+  -possibly add a few light sources for a richer lighting environment
+</br>
+For animations
+	-possibly change from animating camera to animating scene to avoid having to animate light sources as well
+	-index fading from and to scenes with deletion after complete fade on scene exhibit
+	-Already implemented linear interpolation for animations
+	-render new scene on start of a transition
+	-make class to handle this???
+	-possibly add effects or change background color
+	
+    </br>
+    
+How to interact with our creation:
+	X will shift the camera to a viewing angle for the next scene. C will create the shapes included in a given scene. 
+    T will terminate all of the objects in the current scene. You can look around with the mouse. 
+
+    </p>
+    <img src = "./objs/DesignExample.jpg"/>
+    <img src = "./objs/GroupMemberAbsenceMay27.png"/>
+
+    <!-- Example Slider -->
+
+    <!-- Include external libs -->
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-render.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/webgl-loader.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix.js"></script>
+
+    <!-- Include shaders -->
+    <script src="src/graphics/shaders/shader.js"></script>
+    <script src="src/graphics/shaders/asg4.js"></script>
+    <script src="src/graphics/shaders/colorShader.js"></script>
+
+    <!-- Include Base code -->
+    <script src="src/graphics/geometry/vertex.js"></script>
+    <script src="src/graphics/geometry/geometry.js"></script>
+    <script src="src/graphics/geometry/shapes/triangle.js"></script>
+    <script src="src/graphics/geometry/shapes/cube.js"></script>
+    <script src="src/graphics/geometry/shapes/square.js"></script>
+    <script src="src/graphics/geometry/shapes/floor.js"></script>
+    <script src="src/graphics/geometry/shapes/floortwo.js"></script>
+    <script src="src/graphics/geometry/shapes/sphere.js"></script>s
+    <script src="src/graphics/geometry/shapes/skyCube.js"></script>
+    <script src="src/graphics/geometry/shapes/bouySphere.js"></script>
+    <script src="src/graphics/geometry/shapes/coordSquare.js"></script>
+    <script src="src/graphics/geometry/shapes/ceilingSquare.js"></script>
+    <script src="src/graphics/geometry/shapes/backSquare.js"></script>
+
+    <script src="src/graphics/geometry/shapes/custom.js"></script>
+    <script src="src/graphics/renderer.js"></script>
+    <script src="src/graphics/scene.js"></script>
+    <script src="src/graphics/camera.js"></script>
+    <script src="src/graphics/light.js"></script>
+    <script src="src/main.js"></script>
+    <script src="src/input.js"></script>
+  </body>
+</html>

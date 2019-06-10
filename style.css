@@ -1,0 +1,14 @@
+canvasCont {
+    position: relative;
+}
+#overlay {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+#colorBars{
+    margin-top: 500px;
+    margin-left: 500px;
+    top:40%;
+   
+}
