@@ -118,9 +118,9 @@ class BouySphere extends Geometry {
     super.render();
 
     // Collision Detection x bounds
-    if(this.x > -100) {
+    if(this.x > 12) {
       this.xvel = -1 * Math.abs(this.xvel);
-    } else if(this.x < -120) {
+    } else if(this.x < -1) {
       this.xvel = Math.abs(this.xvel);
     }
 

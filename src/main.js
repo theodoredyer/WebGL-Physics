@@ -69,47 +69,10 @@ function main() {
     scene.addGeometry(shape);
   });
 
-  inputHandler.readTexture("objs/backwall.png", function(image) {
-    var backsq = new BackSquare(texShader, image);
-    scene.addGeometry(backsq);
-  });
-
   inputHandler.readTexture("objs/hexfloor.png", function(image) {
     var flr = new Floor(texShader, image);
     scene.addGeometry(flr);
   });
-
-  inputHandler.readTexture("objs/hexfloor.png", function(image) {
-    var flrtwo = new FloorTwo(texShader, image);
-    scene.addGeometry(flrtwo);
-  });
-
-  inputHandler.readTexture("objs/blackwhite.png", function(image) {
-    var shape = new CoordSquare(texShader, image, -2, -1);
-    scene.addGeometry(shape);
-  });
-  inputHandler.readTexture("objs/blackwhite.png", function(image) {
-    var shape = new CoordSquare(texShader, image, -2, -21);
-    scene.addGeometry(shape);
-  });
-  inputHandler.readTexture("objs/blackwhite.png", function(image) {
-    var shape = new CeilingSquare(texShader, image, -4);
-    scene.addGeometry(shape);
-  });
-
-
-  inputHandler.readTexture("objs/waterwall.png", function(image) {
-    var shape = new CoordSquare(texShader, image, -100, -1);
-    scene.addGeometry(shape);
-  });
-  inputHandler.readTexture("objs/waterwall.png", function(image) {
-    var shape = new CoordSquare(texShader, image, -100, -21);
-    scene.addGeometry(shape);
-  });
-  // inputHandler.readTexture("objs/hexfloor.png", function(image) {
-  //   var shape = new CeilingSquare(texShader, image, -100);
-  //   scene.addGeometry(shape);
-  // });
 
   /*
   
@@ -127,14 +90,6 @@ function main() {
   scene.addGeometry(shape);
   var shape2 = new Sphere(colorShader, 30, 2, 17, -17);
   scene.addGeometry(shape2);
-
- 
-
-  // var shape2 = new Sphere(colorShader, 30, 5, 15, 5);
-  // scene.addGeometry(shape2);
-
-  // var shape3 = new Sphere(colorShader, 30, 7, 15, 8);
-  // scene.addGeometry(shape3);
 
   draw2D(ctx);
 
